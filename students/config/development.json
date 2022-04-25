@@ -1,0 +1,8 @@
+{
+    "db": {
+        "user": "xsd",
+        "host": "localhost",
+        "port": "27017",
+        "name": "playground"
+    }
+}

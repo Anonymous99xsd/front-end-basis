@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>  
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="kookeun.jpg">
+<title>HTML Practice</title>
+<!--  <base href="http://www.baidu.com/" target="_top">  -->
+<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+<style>
+    body
+    {
+        background-image: url('kookeun.jpg');
+        background-size: 800px 450px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: right center;
+    }
+</style>
+</head>
+
+
+<body>
+ 
+<h1 style="text-align:center;font-family:Verdana;font-size:40px;">h1标题</h1>
+<!--链接-->
+<h2 style="text-align: center;"><a href="http://www.baidu.com/" target="_top" style="text-decoration: none;background-color: lemonchiffon;color: red;">百度</a></h2>
+<!--输入框-->
+<form action="http://www.baidu.com/" method="GET">
+    <fieldset>
+        <legend>登录</legend>
+        账号: <input type="text" name="user" value=""><br>
+        密码: <input type="password" name="password" value=""><br>
+        <input type="reset" value="重置">
+        <input type="submit" value="提交"><br>
+    </fieldset>
+    <input type="radio" name="sex" value="male">male<br>
+    <input type="radio" name="sex" value="female">female<br>
+    <p><b>注意：</b>当用户点击一个单选按钮时，它就会被选中，其他同名的单选按钮就不会被选中。</p>
+    <input type="checkbox" name="fruit" value="apple">apple<br>
+    <input type="checkbox" name="fruit" value="banana">banana<br>
+    <select name="fruit">
+        <option value="volvo">apple</option>
+        <option value="saab" selected>banana</option>
+        <option value="fiat">orange</option>
+        <option value="audi">pear</option>
+    </select>
+</form>
+<textarea rows="5" cols="50">在此输入内容</textarea>
+<!--发送邮件-->
+<p>
+    <h2>发送电子邮件</h2>
+    <a href="mailto:1183031951@qq.com?cc=2506467613@qq.com&subject=收到了吗？&body=暂无" target="_top" rel="noopener noreferrer">发送电子邮件</a>
+</p>
+<!--图片-->
+<p style="font-size: 30px;"><b>我家的熊孩子（Apink）☞</b>
+    <a href="https://www.bilibili.com/video/BV1i7411f7Tt?from=search&seid=2554172718775196624/"  target="_blank">
+    <img style="border: 12px solid pink;border-radius: 20px;padding: 1px;" src="kookeun.jpg" alt="国恩" align="middle" width="256" height="144"></a>
+</p>
+<!--表格-->
+<table border="1" cellspacing="0" cellpadding="10">
+    <caption>表格名称</caption>
+    <thead>
+        <tr>
+            <th>列表名称1</th>
+            <th colspan="2">列表名称2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>内容1</td>
+            <td>内容2</td>
+            <td rowspan="3" align="center" valign="middle">内容3
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>list1</li>
+                                <li>list2</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">内容4</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>页脚1</td>
+            <td>页脚2</td>
+            <td>页脚3</td>
+        </tr>
+    </tfoot>
+</table>
+<!--无序、有序、自定义列表-->
+<h1>列表</h1>
+<ul style="list-style-type: square;">
+    <li>A</li>
+    <li>B
+        <ul style="list-style-type: square;">
+            <li>B1</li>
+            <li>B2</li>
+        </ul>
+    </li>
+    <li>C</li>
+</ul>
+<ol type="I" start="10">
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+</ol>
+<dl>
+    <dt>drink</dt>
+    <dd>#milk</dd>
+    <dd>#juice</dd>
+</dl>
+<!--区块元素-->
+<h1>--区块元素--</h1>
+<div style="color: green;">green eyes</div>
+<p>red <span style="color: red;">mouse</span></p>
+<div id="container" style="width:500px">
+    <div id="header" style="background-color:#FFA500;">
+    <h1 style="margin-bottom:0;">主要的网页标题</h1></div>
+    <div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+    <b>菜单</b><br>
+    HTML<br>
+    CSS<br>
+    JavaScript</div>
+    <div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
+    内容在这里</div>
+    <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+    版权 © runoob.com</div>
+</div>
+<!--iframe框架-->
+<table border="1" cellspacing="0" cellpadding="10">
+    <tr>
+        <td rowspan="2"><iframe src="kookeun.jpg" width="1000" height="500" frameborder="1" name="iframe-1" align=center></iframe></td>
+        <td><a href="https://www.bilibili.com/video/BV1i7411f7Tt?from=search&seid=2554172718775196624/" target="iframe-1" style="text-decoration: none;"><p style="font-size: 40px;color: pink;">国恩</p></a></td>
+    </tr>
+    <tr>
+        <td><a href="http://www.baidu.com/" target="iframe-1" style="text-decoration: none;"><p style="font-size: 40px;background-color: rgba(255,0,255,0.5);">百度</p></a></td>
+    </tr>
+</table>
+<!--脚本-->
+<p id="demo" style="font-size: 30px;">1+1=?</p>
+<script>
+    function myfunction1(){document.getElementById("demo").innerHTML="2"}
+    function myfunction2(){x=document.getElementById("demo");x.style.color="#FF0000";}
+</script>
+<button type="button" onclick="myfunction1()" style="width: 80px;height: 40px;background-color: #FFA500;float: left;">答案</button>
+<button type="button" onclick="myfunction2()" style="width: 80px;height: 40px;">change color</button>
+
+
+</body>
+</html>

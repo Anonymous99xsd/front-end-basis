@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 600px;
+            min-height: 100vh;
+            background-color: #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .item {
+            width: 400px;
+            height: 40px;
+            margin: 20px 0;
+            background-color: aqua;
+            text-align: center;
+            line-height: 40px;
+            cursor: default;
+            outline: none;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+        <input class="item" value="" disabled/>
+    </div>
+</body>
+
+<script>
+    let pre = null, index = null
+    document.querySelector('.container').addEventListener('click', function (e) {
+        if (e.target === document.querySelector('.container')) return
+        if (pre) {
+            pre.style.backgroundColor = 'aqua'
+            pre.value = ''
+        }
+        e.target.parentNode.childNodes.forEach((v, i) => {
+            if (v === e.target) index = (i + 1) / 2
+        });
+        e.target.style.backgroundColor = 'red'
+        e.target.value = `点击了第${index}个`
+        pre = e.target
+    })
+</script>
+
+</html>

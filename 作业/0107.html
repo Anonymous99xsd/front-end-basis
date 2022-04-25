@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0107作业</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:link,
+        :visited {
+            color: #000;
+        }
+
+        .main {
+            width: 280px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            background-color: #99CDFF;
+        }
+
+        .mid,
+        .WestFood {
+            margin: 8px auto;
+        }
+
+        .mid tr {
+            text-align: center;
+        }
+
+        .mid td {
+            padding: 2px 0px;
+        }
+
+        .westFood::after {
+            position: absolute;
+            content: '';
+            width: 1px;
+            height: 20px;
+            margin-left: 10px;
+            background-color: #333;
+        }
+
+        .chineseFood {
+            margin-left: 15px;
+        }
+
+        .wf {
+            background-color: #CC99FE;
+            display: none;
+        }
+
+        .cf {
+            background-color: #FFCC00;
+            display: none;
+        }
+
+        .WestFood,
+        .ChineseFood {
+            width: 100%;
+        }
+
+        .WestFood td,
+        .ChineseFood td {
+            padding: 4px 0 4px 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main">
+        <table class="mid">
+            <tbody>
+                <tr>
+                    <td>邻家铺子快餐店</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>主营品种</td>
+                </tr>
+                <tr>
+                    <td>营业时间</td>
+                </tr>
+                <tr>
+                    <td>餐厅地理位置</td>
+                </tr>
+                <tr>
+                    <td>餐厅服务项目</td>
+                </tr>
+                <tr>
+                    <td>……</td>
+                </tr>
+                <tr>
+                    <td>……</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="javascript:;" class="westFood">西餐</a>
+                        <a href="javascript:;" class="chineseFood">中国菜</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <div class="main wf">
+        <table class="WestFood">
+            <thead>
+                <tr>
+                    <th>西餐</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>目录</td>
+                </tr>
+                <tr>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>菜名：** 售价：**</td>
+                </tr>
+                <tr>
+                    <td><img src="none.jpg" title="西餐" alt="没有图片">介绍：**</td>
+                </tr>
+                <tr>
+                    <td>****</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="main cf">
+        <table class="ChineseFood">
+            <thead>
+                <tr>
+                    <th>中国菜</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>目录</td>
+                </tr>
+                <tr>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>菜名：** 售价：**</td>
+                </tr>
+                <tr>
+                    <td><img src="none.jpg" title="中国菜" alt="没有图片">介绍：**</td>
+                </tr>
+                <tr>
+                    <td>****</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+    var xc = document.querySelector('.westFood')
+    var zgc = document.querySelector('.chineseFood')
+    var main = document.querySelector('main')
+    var wf = document.querySelector('.wf')
+    var cf = document.querySelector('.cf')
+    xc.addEventListener('click', function () {
+        main.style.display = 'none'
+        wf.style.display = 'block'
+    })
+    zgc.addEventListener('click', function () {
+        main.style.display = 'none'
+        cf.style.display = 'block'
+    })
+</script>
+
+</html>

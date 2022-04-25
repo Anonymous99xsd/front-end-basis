@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <video src=""></video>
+  <button onclick="startRecord()">record</button>
+</body>
+
+<script>
+  const stream = navigator.mediaDevices.getDisplayMedia({
+    video: true
+  })
+  const mime = MediaRecorder.isTypeSupported('video/webm; codecs=vp9') ? 'video/webm; codecs=vp9' : 'video/webm'
+  console.log(stream, mime)
+  const mediaRecorder = new MediaRecorder(stream, {
+    mimeType: mime
+  })
+  // 用于存放录制的blob数据
+  const chunks = []
+  mediaRecorder.addEventListener('dataavailable', function (e) {
+    chunks.push(e.data)
+  })
+  mediaRecorder.addEventListener('stop', () => {
+    const blob = new Blob(chunks, {
+      type: chunks[0].type
+    })
+    // 获取 可用的 url
+    const url = URL.createObjectURL(blob)
+    // 拿到临时录制文件路径后执行你的操作
+    console.log(blob, url)
+  })
+
+  function startRecord() {
+    mediaRecorder.start()
+  }
+</script>
+
+</html>

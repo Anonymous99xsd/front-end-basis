@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易ATM机</title>
+    <script>
+        var cash = 100;
+        var flag = 1;
+        while (flag == 1) {  
+            var shuru = prompt(`请输入您要进行的操作：\n1.存钱\n2.取钱\n3.显示余额\n4.退出`);
+            switch (shuru) {
+                case "1":
+                    var cunqian = prompt("请输入要存入的金额：");
+                    if (cunqian == "") cunqian = 0;
+                    cash += parseInt(cunqian);
+                    alert("余额为：" + cash);
+                    break;
+                case "2":
+                    var quqian = prompt("请输入要取出的金额：");
+                    if (quqian == "") quqian = 0;
+                    cash -= parseInt(quqian);
+                    alert("余额为：" + cash);
+                    break;
+                case "3":
+                    alert("余额为：" + cash);
+                    break;
+                case "4":
+                    flag = 0;
+                    break;
+            }
+        }
+        location.href = 'formdata.html';
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

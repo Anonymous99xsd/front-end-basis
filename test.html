@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0px;
+            /* width: 100%; */
+            height: 2000px;
+        }
+
+        h3 {
+            height: 100px;
+            margin: 20px 0 0;
+        }
+
+        .div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: skyblue;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        #left,
+        #right {
+            width: 200px;
+            height: 200px;
+            background-color: #ffe6b8;
+            position: absolute;
+            top: 120px;
+        }
+
+        #left {
+            left: 0px;
+        }
+
+        #right {
+            right: 0px;
+        }
+
+        #center {
+            margin: 2px 210px;
+            background-color: #eee;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">水平垂直居中</div>
+    <h3>实现三列宽度自适应布局</h3>
+    <div id="left">我是左边</div>
+    <div id="right">我是右边</div>
+    <div id="center">我是中间</div>
+    <button id="btn">点击</button>
+    <table>
+        <thead></thead>
+        <caption style="width: 100px;">123</caption>
+        <tbody>
+            <tr style="width: 50px;">
+                <td style="width: 50px;">456</td>
+                <td>789</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+<script>
+    var btn = document.getElementById('btn');
+    var div = document.querySelector('.div');
+    btn.addEventListener("click", function () {
+        alert('123');
+    })
+    btn.addEventListener("click", function () {
+        alert('456');
+    })
+</script>
+
+</html>

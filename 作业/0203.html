@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        data = [1,100,5,50]<br />
+        <button onClick="printArray()">print array</button>
+        <button onClick="ascendSort()">ascend sort</button><br />
+        input to search: <input type="text" id="usearch" />
+        <button onClick="search()">search data</button><br />
+    </div><br />
+    <div>
+        name: <input type="text" id="uname" /><br />
+        pass: <input type="password" id="upass" /><br />
+        <button onClick="setCookie()">set cookie</button><br />
+        search type: <input type="text" id="usearchCookie" value="name or pass" />
+        <button onClick="searchCookie()">search cookie</button><br />
+        delete type: <input type="text" id="udeleteCookie" value="name or pass" />
+        <button onClick="deleteCookie()">delete cookie</button>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var data = [1, 100, 5, 50];
+
+    function printArray() {
+        document.getElementById('content').innerHTML += 'data: ';
+        for (var i = 0; i < data.length; i++)
+            document.getElementById('content').innerHTML += data[i] + ' ';
+        document.getElementById('content').innerHTML += '<br/>';
+    }
+
+    function ascendSort() {
+        for (var i = 0; i < data.length; i++)
+            for (var j = i + 1; j < data.length; j++)
+                if (data[i] > data[j]) {
+                    var t = data[i];
+                    data[i] = data[j];
+                    data[j] = t;
+                }
+        printArray();
+    }
+
+    function search() {
+        var key = document.getElementById('usearch').value;
+        for (var i = 0; i < data.length; i++)
+            if (data[i] == key)
+                return alert('Exist.');
+        return alert('Not found.');
+    }
+
+    function setCookie() {
+        var username = document.getElementById('uname').value;
+        var userpass = document.getElementById('upass').value;
+        if (username != '' && userpass != '') {
+            document.cookie = 'name=' + username;
+            document.cookie = 'pass=' + userpass;
+            alert('set completed.');
+        } else
+            alert('please input values.');
+    }
+
+    function searchCookie() {
+        var key = document.getElementById('usearchCookie').value;
+        var array1 = document.cookie.split(';');
+        for (var i = 0; i < array1.length; i++) {
+            var array2 = array1[i].split('=');
+            if (array2[0] == key)
+                return alert(key + '=' + array2[1]);
+        }
+        return alert('no data of this type.');
+    }
+
+    function deleteCookie() {
+        var key = document.getElementById('udeleteCookie').value;
+        var date = new Date();
+        date.setTime(date.getTime() - 1000);
+        document.cookie = key + '=deleted; expires=' + date.toGMTString();
+        alert('data deleted.');
+    }
+</script>
+
+</html>

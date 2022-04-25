@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮测试</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+
+    <script>
+        const fn = function () {
+            console.log('点击后被调用');
+            return new Promise(function (resolve, reject) {
+                setTimeout(() => {
+                    console.log('执行完成promise');
+                    resolve('要返回的数据');
+                }, 1000);
+            })
+        }
+
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', function () {
+            fn().then(function (data) {
+                console.log(data);
+            })
+        })
+    </script>
+</body>
+
+</html>

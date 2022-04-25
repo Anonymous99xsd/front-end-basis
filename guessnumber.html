@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+    <script>
+        var numran = Math.floor(Math.random() * 1024) + 1;
+        var counter = 10;
+        while (counter) {
+            num = prompt("请输入猜测的数字：");
+            if (!num) continue
+            if (num > numran) {
+                alert("大了");
+            }
+            else if (num < numran) {
+                alert("小了");
+            }
+            else {
+                alert("猜对了！");
+                break;
+            }
+            counter--;
+        }
+        if (!counter) alert("你失败了");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

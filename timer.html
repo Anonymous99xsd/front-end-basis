@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当前时间</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .timer {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer"></div>
+
+    <script>
+        setInterval(function () {
+            var obj = new Date();
+            var hour = obj.getHours();
+            var min = obj.getMinutes();
+            var sec = obj.getSeconds();
+            var timer = document.querySelector(".timer")
+            timer.innerHTML = "当前时间为：" + hour + "时" + min + "分" + sec + "秒";
+        }, 1000)
+    </script>
+</body>
+
+</html>

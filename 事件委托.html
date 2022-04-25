@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        .hover {
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn1">添加</button>
+    <button class="btn2">删除</button>
+    <ul class="ul">
+        <li>1<p>11</p></li>
+        <li>2<p>22</p></li>
+        <li>3<p>33</p></li>
+        <li>4<p>44</p></li>
+        <li>5<p>55</p></li>
+    </ul>
+</body>
+
+<script>
+    // var ul = document.querySelector('ul')
+    // ul.addEventListener('mouseover', function (e) {
+    //     e.target.classList.add('hover')
+    // })
+    // ul.addEventListener('mouseout', function (e) {
+    //     e.target.classList.remove('hover')
+    // })
+    var p = document.querySelectorAll('p')
+    for (let v of p) {
+        v.addEventListener('mouseover', function (e) {
+            e.target.classList.add('hover')
+        })
+        v.addEventListener('mouseout', function (e) {
+            e.target.classList.remove('hover')
+        })
+    }
+</script>
+
+<script>
+    // mouseover 事件：不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件
+    // mouseout 事件：不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件
+    // mouseenter 事件：只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件
+    // mouseleave 事件：只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件
+
+    // function mouse() {
+    //     $('li').each(function () {
+    //         $(this).mouseenter(function () {
+    //             $(this).addClass("hover");
+    //         });
+    //         $(this).mouseleave(function () {
+    //             $(this).removeClass("hover");
+    //         });
+    //     })
+    // }
+
+    var i = 6
+    $('.btn1').click(function () {
+        $('.ul').append(`<li>${i++}</li>`);
+        // mouse();
+    })
+    $('.btn2').click(function () {
+        $('li:last-child').remove();
+        i--
+        // mouse();
+    })
+
+    // var btn = document.getElementsByClassName('btn');
+    // var ul = document.querySelector(".ul");
+    // btn[0].addEventListener("click", function () {
+    //     let li = document.createElement("li");
+    //     li.appendChild(document.createTextNode("006"));
+    //     ul.appendChild(li);
+    //     mouse();
+    // })
+
+    // window.onload = mouse();
+
+
+
+    // var li = $('li');
+    // $('.ul').on('mousemove', 'li', function() {
+    //     console.log('move');
+    //     this.style.backgroundColor = 'red';
+    // });
+    // $('.ul').on('mouseenter', 'li', function() {
+    //     console.log('enter');
+    //     this.style.backgroundColor = 'yellow';
+    // });
+    // $('.ul').on('mouseout', 'li', function() {
+    //     console.log('out');
+    //     this.style.backgroundColor = '';
+    // });
+    // $('.ul').on('mouseleave', 'li', function() {
+    //     console.log('leave');
+    //     this.style.backgroundColor = 'blue';
+    // });
+</script>
+
+</html>

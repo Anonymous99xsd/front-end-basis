@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板引擎</title>
+</head>
+
+<body>
+    // 标准语法
+    <p>{{ users[0].name }}</p>
+    // if判断
+    {{ if age > 20 }}
+    年龄大于20
+    {{ else if age > 15 }}
+    年龄大于15，小于等于20
+    {{ else }}
+    年龄小于等于15
+    {{ /if }}
+
+    // 循环
+    <ul>
+        {{ each users }}
+        <li>
+            <p>{{ $value.name }}</p>
+            <p>{{@ $value.content }}</p>
+        </li>
+        <li>
+            {{ $value.name }}
+            {{ $value.age }}
+        </li>
+        {{ /each }}
+    </ul>
+
+    // 包含
+    {{ include './common/header.art' }}
+    <div>{{ msg }}</div>
+    {{ include './common/footer.art' }}
+
+
+
+
+    // 原始语法
+
+    // if判断
+    <% if (age > 20) { %>
+    年龄大于20
+    <% } else if (age > 15) { %>
+    年龄大于15，小于等于20
+    <% } else { %>
+    年龄小于等于15
+    <% } %>
+
+    // 循环
+    <ul>
+        <% for (var i = 0; i < users.length; i++) { %>
+        <li>
+            <p><%= users[i].name %></p>
+            <p><%- users[i].content %></p>
+        </li>
+        <li>
+            <%= users[i].name %>
+            <%= users[i].age %>
+        </li>
+        <% } %>
+    </ul>
+
+    // 包含
+    <% include('./common/header.art') %>
+    <div>{{ msg }}</div>
+    <% include('./common/footer.art') %>
+</body>
+
+</html>

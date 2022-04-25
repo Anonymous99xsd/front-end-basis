@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 10px;
+        }
+
+        table {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        thead tr {
+            background-color: #eee;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>球员</th>
+                <th>得分</th>
+                <th>篮板</th>
+                <th>助攻</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>詹姆斯</td>
+                <td>11</td>
+                <td>22</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>库里</td>
+                <td>22</td>
+                <td rowspan="2">33</td>
+                <td>44</td>
+            </tr>
+            <tr>
+                <td>杜兰特</td>
+                <td>33</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <td>戴维斯</td>
+                <td colspan="2">44</td>
+                <td>22</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <tbody>
+            <tr>
+                <td rowspan="3"></td>
+                <td rowspan="3"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

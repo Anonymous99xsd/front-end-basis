@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易计算器</title>
+    <script>
+        var xh = 1;
+        while (xh == 1) {
+            var shuru = prompt("欢迎使用简易计算机：" + "\n" + "1.加法运算" + "\n" + "2.减法运算" + "\n" + "3.乘法运算" + "\n" + "4.除法运算" + "\n" + "5.退出" + "\n" + "请输入您的选项：");
+            switch (shuru) {
+                case "1":
+                    var num1 = prompt("请输入第1个数：");
+                    var num2 = prompt("请输入第2个数：");
+                    alert(parseFloat(num1) + parseFloat(num2));
+                    break;
+                case '2':
+                    var num1 = prompt("请输入第1个数：");
+                    var num2 = prompt("请输入第2个数：");
+                    alert(parseFloat(num1) - parseFloat(num2));
+                    break;
+                case '3':
+                    var num1 = prompt("请输入第1个数：");
+                    var num2 = prompt("请输入第2个数：");
+                    alert(parseFloat(num1) * parseFloat(num2));
+                    break;
+                case '4':
+                    var num1 = prompt("请输入第1个数：");
+                    var num2 = prompt("请输入第2个数：");
+                    alert(parseFloat(num1) / parseFloat(num2));
+                    break;
+                case "5":
+                    xh = 0;
+                    break;
+            }
+        }
+        alert("谢谢使用！");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

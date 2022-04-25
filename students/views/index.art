@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生档案</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="data:;base64,=">
+</head>
+
+<body>
+    <div id="dsp"><span id="sp">学生档案</span></div>
+    <div class="w">
+        <div class="ipt">
+            <form action="/add" method="POST">
+                <p>姓名:</p>
+                <input name="name" id="ipt" type="text" placeholder="请输入姓名">
+                <p>年龄:</p>
+                <input name="age" id="ipt" type="text" placeholder="请输入年龄"><br>
+                <p>
+                    <span>性别:&nbsp;</span>
+                    <input type="radio" name="sex" value="男" checked> 男 <input type="radio" name="sex" value="女"> 女
+                </p>
+                <p>邮箱地址:</p>
+                <input name="email" id="ipt" type="text" placeholder="请输入邮箱地址"><br>
+                <p>
+                    <span>爱好:&nbsp;</span>
+                    <input type="checkbox" value='敲代码' name="hobbies"> 敲代码
+                    <input type="checkbox" value='打篮球' name="hobbies"> 打篮球
+                    <input type="checkbox" value='睡觉' name="hobbies"> 睡觉
+                </p>
+                <p>所属学院:</p>
+                <select id="ipt" name="collage">
+                    <option value="前端与移动开发">前端与移动开发</option>
+                    <option value="PHP">PHP</option>
+                    <option value="JAVA">JAVA</option>
+                    <option value="Android">Android</option>
+                    <option value="IOS">IOS</option>
+                    <option value="UI设计">UI设计</option>
+                    <option value="C++">C++</option>
+                </select>
+                <p>入学日期:</p>
+                <input name="enterDate" id="ipt" type="date"><br>
+                <input class="btn" type="submit" value="提交"></input>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

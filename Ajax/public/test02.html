@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><input type="text" id="name"></p>
+    <p><input type="text" id="age"></p>
+    <p><input type="button" value="点击" id="button"></p>
+
+    <script>
+        var username = document.getElementById("name");
+        var age = document.getElementById("age");
+        var button = document.getElementById("button");
+
+        button.onclick = function() {
+            var xhr = new XMLHttpRequest();
+            var valueName = username.value;
+            var valueAge = age.value;
+            var params = `name=${valueName}&age=${valueAge}`;
+            xhr.open('get', 'http://localhost:3000/get?' + params);
+            xhr.send();
+            xhr.onload = function() {
+                console.log(JSON.parse(xhr.responseText));
+            }
+        }
+    </script>
+</body>
+</html>

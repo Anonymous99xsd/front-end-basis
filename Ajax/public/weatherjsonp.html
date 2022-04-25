@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jsonp.js"></script>
+    <script src="template-web.js"></script>
+    <style>
+        tr {
+            text-align: center;
+        }
+
+        .div {
+            display: block;
+            width: 209px;
+            padding: 20px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <p>省：<input type="text" id="ipt1"></p>
+        <p>市：<input type="text" id="ipt2"></p>
+        <input type="button" value="清空" id="btn">
+    </div>
+    <table id="box" border="1" cellspacing="0" cellpadding="5" style="margin: 0 auto;width: 800px;">
+        <tr>
+            <th>时间</th>
+            <th>温度</th>
+            <th>天气</th>
+            <th>风向</th>
+            <th>风力</th>
+        </tr>
+    </table>
+
+
+    <script type="text/html" id="tpl">
+        <tr>
+            <th>时间</th>
+            <th>温度</th>
+            <th>天气</th>
+            <th>风向</th>
+            <th>风力</th>
+        </tr>
+        {{each info}}
+        <tr>
+            <td>{{dateFormat($value.update_time)}}</td>
+            <td>{{$value.degree}}</td>
+            <td>{{$value.weather}}</td>
+            <td>{{$value.wind_direction}}</td>
+            <td>{{$value.wind_power}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
+
+    <script>
+        var ipt1 = document.querySelector('#ipt1');
+        var ipt2 = document.querySelector('#ipt2');
+        var btn = document.querySelector('#btn');
+        var box = document.querySelector('#box');
+
+        function dateFormat(date) {
+            let year = date.substr(0, 4);
+            let month = date.substr(4, 2);
+            let day = date.substr(6, 2);
+            let hour = date.substr(8, 2);
+            return `${year}年${month}月${day}日${hour}时`;
+        }
+        // 向模板中开放函数 dateFormat
+        template.defaults.imports.dateFormat = dateFormat;
+
+        // 回车响应
+        // ipt2.onkeydown = function (e) {
+        //     if (e.keyCode == 13) {
+        //         var province = ipt1.value + '省';
+        //         var city = ipt2.value + '市';
+        //         jsonp({
+        //             url: 'http://wis.qq.com/weather/common',
+        //             data: {
+        //                 source: 'pc',
+        //                 weather_type: 'forecast_1h',
+        //                 province: province,
+        //                 city: city,
+        //             },
+        //             success: function (data) {
+        //                 var html = template('tpl', {
+        //                     info: data.data.forecast_1h
+        //                 })
+        //                 box.innerHTML = html;
+        //             }
+        //         })
+        //     }
+        // }
+
+        // 文本框失去焦点响应
+        // ipt2.onblur = function () {
+        //     var province = ipt1.value + '省';
+        //     var city = ipt2.value + '市';
+        //     jsonp({
+        //         url: 'http://wis.qq.com/weather/common',
+        //         data: {
+        //             source: 'pc',
+        //             weather_type: 'forecast_1h',
+        //             province: province,
+        //             city: city,
+        //         },
+        //         success: function (data) {
+        //             var html = template('tpl', {
+        //                 info: data.data.forecast_1h
+        //             })
+        //             box.innerHTML = html;
+        //         }
+        //     })
+        // }
+
+        // 自动响应
+        var timer = null;
+        ipt2.oninput = function () {
+            clearTimeout(timer);
+            if (ipt2.value.replace(/\s/g, '') == '') return;
+            var province = ipt1.value.replace(/\s/g, '') + '省';
+            var city = ipt2.value.replace(/\s/g, '') + '市';
+            timer = setTimeout(function () {
+                jsonp({
+                    url: 'https://wis.qq.com/weather/common',
+                    data: {
+                        source: 'pc',
+                        weather_type: 'forecast_1h',
+                        province: province,
+                        city: city,
+                    },
+                    callback: function (data) {
+                        if (!data.data.forecast_1h[0]) {
+                            alert('参数错误')
+                        } else {
+                            var html = template('tpl', {
+                                info: data.data.forecast_1h
+                            })
+                            box.innerHTML = html;
+                        }
+                    }
+                })
+            }, 800);
+        }
+
+        btn.addEventListener('click', function () {
+            ipt1.value = '';
+            ipt2.value = '';
+        })
+    </script>
+</body>
+
+</html>

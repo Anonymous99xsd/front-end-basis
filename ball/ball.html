@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ball</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .ball {
+            display: inline-block;
+            position: relative;
+            left: 200px;
+            top: 100px;
+            height: 100px;
+            /* transform: translateX(1000px) rotate(1080deg); */
+            /* transition: all 3s linear; */
+            animation: self 2s linear infinite;
+        }
+
+        img {
+            height: 100px;
+            width: 100px;
+        }
+
+        @keyframes self {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(720deg)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball"><img src="ball.png" alt=""></div>
+
+    <script>
+        var ball = document.querySelector('.ball');
+        ball.onclick = function () {
+        }
+    </script>
+</body>
+
+</html>

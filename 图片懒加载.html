@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 3000px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto 40px;
+            height: 422px;
+        }
+    </style>
+</head>
+
+<body>
+    <img data-src="./images/kookeun.jpg" alt="图片加载中……">
+    <img data-src="./images/kookeun.jpg" alt="图片加载中……">
+    <img data-src="./images/kookeun.jpg" alt="图片加载中……">
+    <img data-src="./images/kookeun.jpg" alt="图片加载中……">
+    <img data-src="./images/kookeun.jpg" alt="图片加载中……">
+    <img data-src="./images/kookeun.jpg" alt="图片加载中……">
+</body>
+<script>
+    var imgs = document.querySelectorAll('img');
+
+    function getTop(e) {
+        var T = e.offsetTop;
+        while (e = e.offsetParent) {
+            T += e.offsetTop;
+        }
+        return T;
+    }
+
+    function lazyLoad(imgs) {
+        var h = document.documentElement.clientHeight;
+        var s = document.documentElement.scrollTop;
+        for (var i = 0; i < imgs.length; i++) {
+            if (getTop(imgs[i]) < (h + s)) {
+                if (imgs[i].src == '') {
+                    imgs[i].src = imgs[i].getAttribute('data-src');
+                }
+            }
+        }
+    }
+    window.onload = window.onscroll = function () {
+        lazyLoad(imgs);
+    }
+</script>
+
+</html>

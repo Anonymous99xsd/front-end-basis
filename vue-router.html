@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-router</title>
+    <script src="../插件/vue.js"></script>
+    <script src="../插件/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/user/1">User1</router-link>
+        <router-link to="/user/2">User2</router-link>
+        <router-link to="/user/3">User3</router-link>
+        <router-link :to="{name: 'reg'}">Register</router-link>
+        <router-view></router-view>
+    </div>
+
+
+    <script>
+        const User = {
+            props: ['id', 'name', 'age'],
+            template: `
+            <div>
+                <h1>User{{id+' '+name+' '+age}}</h1>
+                <button @click="onRegister">跳转</button>
+            </div>
+            `,
+            methods: {
+                onRegister: function() {
+                    this.$router.push('/register')
+                }
+            },
+        };
+        const Register = {
+            template: `
+            <div>
+                <h1>Register</h1>
+                <button @click="goBack">返回</button>
+                <hr/>
+                <router-link to="/register/tab1">Tab1</router-link>
+                <router-link to="/register/tab2">Tab2</router-link>
+                <router-view></router-view>
+            </div>
+            `,
+            methods: {
+                goBack() {
+                    this.$router.go(-1)
+                }
+            },
+        };
+        const Tab1 = {
+            template: '<h2>Tab1</h2>'
+        };
+        const Tab2 = {
+            template: '<h2>Tab2</h2>'
+        }
+        const router = new VueRouter({
+            routes: [{
+                path: '/',
+                redirect: '/user'
+            }, {
+                path: '/user/:id',
+                component: User,
+                props: route => ({
+                    id: route.params.id,
+                    name: 'xsd',
+                    age: 21
+                })
+            }, {
+                name: 'reg',
+                path: '/register',
+                component: Register,
+                children: [{
+                    path: '/register/tab1',
+                    component: Tab1
+                }, {
+                    path: '/register/tab2',
+                    component: Tab2
+                }]
+            }]
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            router: router
+        })
+    </script>
+</body>
+
+</html>

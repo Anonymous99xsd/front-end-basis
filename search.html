@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .search {
+            float: left;
+            display: block;
+            width: 412px;
+            height: 42px;
+            margin: 0 auto;
+        }
+        .search input {
+            float: left;
+            width: 345px;
+            height: 40px;
+            border: 1px solid skyblue;
+            border-right: 0;
+            padding-left: 15px;
+        }
+        .search button {
+            float: left;
+            width: 50px;
+            height: 42px;
+            border: 0;
+            background-color: blue;
+        }
+    </style>
+    <script>
+         function Person(name, type, blood, attack) {
+             this.name = name,
+             this.type = type,
+             this.blood = blood,
+             this.attack = function(attack) {
+                 console.log(attack);
+             }
+         }
+         var lp = new Person("廉颇", "力量型", 500);
+         var hy = new Person("后裔", "射手型", 100);
+         console.log(lp.name);
+         console.log(lp.type);
+         console.log(lp.blood);
+         lp.attack("近战");
+         console.log(lp);
+         console.log(hy.name);
+         console.log(hy.type);
+         console.log(hy.blood);
+         hy.attack("远程");
+
+         var obj = {
+             name: '廉颇',
+             type: '力量型',
+             blood: 500,
+             fn: function() {}
+         }
+         for (var k in obj) {
+             console.log(k);
+             console.log(obj[k]);
+         }
+    </script>
+</head>
+<body>
+    <div class="search">
+        <input type="text" placeholder="请输入关键词">
+        <button></button>
+    </div>
+</body>
+</html>

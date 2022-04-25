@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.w {
+    width: 720px;
+    margin: auto;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: skyblue;
+}
+.clerafix:before,.clerafix:after {
+    content:"";
+    display: table;
+}
+.clerafix:after {
+    clear: both;
+}
+.clerafix {
+    *zoom: 1;
+}
+.body {
+    /* height: 1000px; */
+    background-color: #f6f6f6;
+}
+.header {
+    height: 143px;
+    background-image: url(images/head.png);
+}
+.me {
+    display: block;
+    width: 660px;
+    height: 210px;
+    background-color: #f14a45;
+    margin: 31px auto;
+    border-radius: 20px;
+}
+.touxiang {
+    display: block;
+    float: left;
+    height: 119px;
+    width: 119px;
+    background-image: url(images/touxiang.png);
+    margin: 46px 32px 46px 40px;
+}
+.jihe {
+    float: left;
+    width: 110px;
+    margin-top: 50px;
+}
+.name {
+    float: left;
+    color:#ffffff;
+    font-size: 32px;
+}
+.jifen {
+    float: left;
+    width: 79px;
+    height: 40px;
+    background-image: url(images/jifen.png);
+    margin-top: 26px;
+}
+.shadow a:hover {
+    box-shadow: 4px 4px 4px #888888;
+}
+.object {
+    display: block;
+    margin: 28px auto;
+    width: 660px;
+    height: 120px;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+.left {
+    display: block;
+    float: left;
+    font-size: 34px;
+    line-height: 120px;
+    margin-left: 80px;
+}
+.right {
+    display: block;
+    float: right;
+    font-size: 34px;
+    line-height: 120px;
+    margin-right: 25px;
+}
+.footer {
+    display: block;
+    width: 720px;
+    height: 80px;
+    background-color: #000000;
+    margin-top: 240px;
+}

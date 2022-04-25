@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            width: 100%;
+            height: 200px;
+            background-color: #666;
+        }
+
+        .main div {
+            width: 100px;
+            height: 100px;
+            margin: 0 20px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="div1">隔1s才能输出</div>
+        <div class="div2">节流</div>
+        <div class="div3">防抖</div>
+    </div>
+    <script>
+        var div1 = document.querySelector('.div1');
+        var div2 = document.querySelector('.div2');
+        var div3 = document.querySelector('.div3');
+        div1.addEventListener('click', fn1(1000));
+        div2.addEventListener('click', fn2(1000));
+        div3.addEventListener('click', fn3(1000));
+
+
+        function fn1(delay) {
+            let last = Date.now();
+            return function () {
+                var now = Date.now();
+                console.log(now - last);
+                if (now - last >= delay) {
+                    console.log('间隔超过1000ms才输出');
+                    last = Date.now();
+                }
+            }
+        }
+
+        function fn2(delay) {
+            let timer = null;
+            return function () {
+                if (!timer) {
+                    timer = setTimeout(function () {
+                        console.log('节流');
+                        timer = null;
+                    }, delay)
+                }
+            }
+        }
+
+        function fn3(delay) {
+            let timer = null
+            return function () {
+                if (timer) clearTimeout(timer)
+                timer = setTimeout(function () {
+                    console.log('防抖')
+                }, delay)
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+
+        .bd1 {
+            position: relative;
+            width: 100%;
+            height: 1200px;
+            margin: 0 auto;
+            background-color: #ddd;
+        }
+
+        .bd2 {
+            background-color: #333;
+        }
+
+        .opt1 {
+            position: relative;
+            display: block;
+            z-index: 1;
+        }
+
+        .opt1 input {
+            float: left;
+            width: 200px;
+            height: 30px;
+            border: 1px solid #999;
+            color: #ccc;
+            border-radius: 5px;
+            outline: none;
+            margin: 10px 20px;
+            letter-spacing: 1px;
+            text-indent: 1em;
+        }
+
+        .opt1 input:focus {
+            -webkit-box-shadow: 0px 0px 6px #ffbfbf;
+            -moz-box-shadow: 0px 0px 5px #ffbfbf;
+            box-shadow: 0px 0px 5px #ffbfbf;
+        }
+
+        .opt2h {
+            position: absolute;
+            display: block;
+            background: url("images/head.png") no-repeat;
+            width: 720px;
+            height: 143px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: .4s;
+            z-index: 1;
+        }
+
+        .opt2ha {
+            position: absolute;
+            display: block;
+            background: url("images/jifen.png") no-repeat;
+            width: 79px;
+            height: 40px;
+            top: 0;
+            right: 0;
+        }
+
+        .opt2b {
+            position: absolute;
+            display: block;
+            background: url("../国恩/kookeun.jpg") no-repeat;
+            width: 1600px;
+            height: 600px;
+            top: 143px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: .3s;
+            z-index: 0;
+        }
+
+        .opt3 {
+            position: absolute;
+            display: block;
+            float: right;
+            right: 300px;
+            width: 100px;
+            height: 40px;
+            border: 1px solid yellow;
+            font-size: 20px;
+            line-height: 40px;
+            text-align: center;
+            background-color: skyblue;
+            color: #fff;
+            transition: .3s;
+        }
+
+        .opt3a {
+            position: absolute;
+            display: none;
+            width: 100px;
+            height: 400px;
+            background-color: #fff;
+            border: 1px solid yellow;
+            top: 40px;
+            right: -1px;
+        }
+
+        .opt3:hover {
+            background-color: blue;
+        }
+
+        button {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            right: 50px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bd1" id="bd">
+        <div class="opt1">
+            <input type="text" class="box1" value="账号">
+            <input type="text" class="box2" value="密码">
+        </div>
+        <div class="opt2h">
+            <div class="opt2ha"></div>
+        </div>
+        <div class="opt2b"></div>
+        <div class="opt3">选项
+            <div class="opt3a"></div>
+        </div>
+        <button>开/关灯</button>
+    </div>
+    <script>
+        // 作业一
+        var ipt = document.querySelectorAll('input');
+        ipt[0].onfocus = function () {
+            if (ipt[0].value == '账号') this.value = '';
+        }
+        ipt[0].onblur = function () {
+            if (ipt[0].value == '') ipt[0].value = '账号';
+        }
+        ipt[1].onfocus = function () {
+            if (ipt[1].value == '密码') {
+                this.value = '';
+                this.type = 'password';
+            }
+        }
+        ipt[1].onblur = function () {
+            if (ipt[1].value == '') {
+                ipt[1].value = '密码';
+                this.type = 'text';
+            }
+        }
+
+        // 作业二
+        var opt2h = document.querySelector('.opt2h');
+        var opt2ha = document.querySelector('.opt2ha');
+        var opt2b = document.querySelector('.opt2b')
+        opt2ha.onclick = function () {
+            opt2h.style.opacity = '0';
+            opt2b.style.top = '0';
+        }
+
+        // 作业三
+        var opt3 = document.querySelector('.opt3');
+        var opt3a = document.querySelector('.opt3a');
+        opt3.onmouseover = function () {
+            opt3a.style.display = 'block';
+        }
+        opt3.onmouseout = function () {
+            opt3a.style.display = 'none';
+        }
+
+        // 作业四
+        var btn = document.querySelector('button');
+        var bd = document.querySelector('#bd')
+        var light = 1
+        btn.onclick = function () {
+            if (light == 1) {
+                bd.className = 'bd1 bd2';
+                light = 0;
+            }
+            else {
+                bd.className = 'bd1';
+                light = 1;
+            }
+        }
+    </script>
+</body>
+
+</html>

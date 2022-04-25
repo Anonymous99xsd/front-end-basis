@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+    <style>
+        [class^=ipt] {
+            margin: 50px;
+            width: 300px;
+            height: 30px;
+            font-size: 16px;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="ipt1"><span>账号验证</span>
+    <input type="text" class="ipt2"><span>座机号验证</span>
+    <input type="text" class="ipt3"><span>汉字验证</span>
+
+    <script>
+        //验证函数
+        function fn(ipt, reg) {
+            ipt.onblur = function () {
+                if (reg.test(this.value)) {
+                    this.nextElementSibling.innerHTML = "输入合法";
+                    this.nextElementSibling.className = 'green';
+                } else {
+                    this.nextElementSibling.innerHTML = "输入不合法";
+                    this.nextElementSibling.className = 'red';
+                }
+            }
+        }
+        //账号验证
+        var reg1 = /^[a-zA-Z0-9_-]{6,12}$/;
+        var ipt1 = document.querySelector(".ipt1");
+        fn(ipt1, reg1);
+        //座机号码验证
+        var reg2 = /^\d{3}-\d{8}|\d{4}-\d{7}$/;
+        var ipt2 = document.querySelector(".ipt2");
+        fn(ipt2, reg2);
+        //汉字验证
+        var reg3 = /^[\u4e00-\u9fa5]{2,8}$/;
+        var ipt3 = document.querySelector(".ipt3");
+        fn(ipt3, reg3);
+    </script>
+</body>
+
+</html>
